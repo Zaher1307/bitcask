@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"os"
 
@@ -10,8 +11,11 @@ import (
 
 func main() {
 	directoryFlag := flag.String("directory", os.Getenv("HOME")+"/resp_server_datastore", "the directory of db")
-	listenPortFlag := flag.String("port", "6379", "the listen port")
-	err := resp.StartServer(*directoryFlag, *listenPortFlag)
+	listenPortFlagInt := flag.Int("port", 6379, "the listen port")
+    flag.Parse()
+    listenPortFlagString := fmt.Sprint(*listenPortFlagInt)
+    fmt.Println(listenPortFlagString)
+	err := resp.StartServer(*directoryFlag, listenPortFlagString)
 	if err != nil {
 		log.Fatal("error connection")
 		return
