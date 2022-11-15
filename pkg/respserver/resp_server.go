@@ -13,6 +13,7 @@ func StartServer() error {
 	if err != nil {
 		return err
 	}
+    defer bitcask.Close()
 
 	s := resp.NewServer()
 
