@@ -9,7 +9,7 @@ import (
 )
 
 func StartServer() error {
-	bitcask, err := bitcask.Open("./resp_server", bitcask.ReadWrite)
+	bitcask, err := bitcask.Open("./resp_server_datastore", bitcask.ReadWrite)
 	if err != nil {
 		return err
 	}
