@@ -8,8 +8,8 @@ import (
 	"github.com/zaher1307/bitcask/pkg/bitcask"
 )
 
-func StartServer() error {
-	bitcask, err := bitcask.Open("./resp_server_datastore", bitcask.ReadWrite)
+func StartServer(dirPath, port string) error {
+	bitcask, err := bitcask.Open(dirPath, bitcask.ReadWrite)
 	if err != nil {
 		return err
 	}
@@ -57,8 +57,10 @@ func StartServer() error {
 		}
 		return true
 	})
-	if err := s.ListenAndServe(":6379"); err != nil {
+
+	if err := s.ListenAndServe(":" + port); err != nil {
 		log.Fatal(err)
 	}
+
 	return nil
 }
