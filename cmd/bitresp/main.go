@@ -14,7 +14,6 @@ func main() {
 	listenPortFlagInt := flag.Int("port", 6379, "the listen port")
     flag.Parse()
     listenPortFlagString := fmt.Sprint(*listenPortFlagInt)
-    fmt.Println(listenPortFlagString)
 	err := resp.StartServer(*directoryFlag, listenPortFlagString)
 	if err != nil {
 		log.Fatal("error connection")
