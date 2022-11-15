@@ -7,7 +7,7 @@ Bitcask is an append-only key/value data storage engine. The origin of Bitcask i
 
 - **Get the package:**
 ```sh
-go get github.com/zaher1307/bitcask
+$ go get github.com/zaher1307/bitcask
 ```
 - **Package:**
 
