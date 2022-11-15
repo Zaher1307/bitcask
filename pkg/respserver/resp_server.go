@@ -44,7 +44,7 @@ func StartServer(dirPath, port string) error {
 		return true
 	})
 
-	s.HandleFunc("delete", func(conn *resp.Conn, args []resp.Value) bool {
+	s.HandleFunc("del", func(conn *resp.Conn, args []resp.Value) bool {
 		if len(args) != 2 {
 			conn.WriteError(errors.New("ERR wrong number of arguments for 'get' command"))
 		} else {
